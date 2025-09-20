@@ -11,8 +11,11 @@ const Card: React.FC<CardProps> = ({ item }) => {
 
   return (
     <div style={{
-      border: "1px solid #e5e7eb", borderRadius: 12, padding: "0.9rem",
-      display: "grid", gap: "0.25rem"
+      border: "1px solid #b4b8beff", borderRadius: 12, padding: "0.9rem",
+      display: "grid", gap: "0.25rem",
+      backgroundColor: "#0d1624ff",
+      boxShadow: "0 2px 6px #939fb3ff"
+
     }}>
       <span style={{ fontSize: 12, opacity: 0.7, textTransform: "uppercase" }}>{item.kind}</span>
       <strong style={{ fontSize: 18 }}>{getDisplayTitle(item)}</strong>
@@ -25,7 +28,7 @@ const Card: React.FC<CardProps> = ({ item }) => {
           border: "none",
           borderRadius: 8,
           padding: ".5rem .75rem",
-          background: fav ? "#f59e0b" : "#111827",
+          background: fav ? "#f59e0b" : "#25365bff",
           color: "#fff",
           cursor: "pointer"
         }}

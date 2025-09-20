@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
 import type { DataItem } from "../types";
 
-
+// Tipo do contexto (sem any)
 type FavoritesContextType = {
   favorites: DataItem[];
   isFavorite: (id: string) => boolean;
@@ -13,9 +13,12 @@ type FavoritesContextType = {
 const FavoritesContext = createContext<FavoritesContextType | null>(null);
 
 export const FavoritesProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+ 
   const [favorites, setFavorites] = useState<DataItem[]>([]);
 
+
   const isFavorite = (id: string) => favorites.some(f => f.id === id);
+
 
   const toggleFavorite = (item: DataItem) => {
     setFavorites(prev =>
@@ -30,6 +33,7 @@ export const FavoritesProvider: React.FC<React.PropsWithChildren> = ({ children 
 
   const clearFavorites = () => setFavorites([]);
 
+ 
   const value = useMemo(
     () => ({ favorites, isFavorite, toggleFavorite, removeFavorite, clearFavorites }),
     [favorites]
@@ -37,6 +41,7 @@ export const FavoritesProvider: React.FC<React.PropsWithChildren> = ({ children 
 
   return <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>;
 };
+
 
 export function useFavorites() {
   const ctx = useContext(FavoritesContext);
