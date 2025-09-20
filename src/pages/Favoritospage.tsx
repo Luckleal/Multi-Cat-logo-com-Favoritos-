@@ -12,7 +12,11 @@ const FavoritosPage: React.FC = () => {
         {favorites.length > 0 && (
           <button
             onClick={clearFavorites}
-            style={{ border: "1px solid #e5e7eb", padding: ".5rem .75rem", borderRadius: 8, cursor: "pointer" }}
+            style={{
+              border: "1px solid #ebe9e5ff",
+              padding: ".5rem .75rem", borderRadius: 8,
+              cursor: "pointer",
+            }}
           >
             Limpar favoritos
           </button>
